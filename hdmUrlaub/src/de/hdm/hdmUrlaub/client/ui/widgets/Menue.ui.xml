@@ -1,0 +1,35 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+	<ui:style>
+	.important {
+		font-weight: bold;
+		text-align: center;
+		
+	}
+
+	
+	</ui:style>
+	
+	<b:Panel>
+  <b:PanelHeader>
+    <b:Heading size="H3" text="Hauptmenue"/>
+  </b:PanelHeader>
+  <b:PanelBody>
+    <b:NavPills stacked="true">
+			
+  			<b:AnchorListItem active="true">Neuer Urlaubsantrag</b:AnchorListItem>
+  			<b:AnchorListItem>Status aktueller Anträge</b:AnchorListItem>
+  			<b:AnchorListItem>Historie</b:AnchorListItem>
+	</b:NavPills>
+  </b:PanelBody>
+  <b:PanelFooter>
+    
+  </b:PanelFooter>
+</b:Panel>
+ 		
+	
+		
+	
+</ui:UiBinder> 
