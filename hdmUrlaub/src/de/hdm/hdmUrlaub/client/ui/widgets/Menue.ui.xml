@@ -6,8 +6,14 @@
 	.important {
 		font-weight: bold;
 		text-align: center;
-		
 	}
+	
+
+@external nav-pills;
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
+    background-color:red;
+}
+
 
 	
 	</ui:style>
@@ -17,12 +23,13 @@
     <b:Heading size="H3" text="Hauptmenue"/>
   </b:PanelHeader>
   <b:PanelBody>
-    <b:NavPills stacked="true">
-			
+    
+    <b:NavPills addStyleNames="nav-pills" stacked="true">
   			<b:AnchorListItem active="true">Neuer Urlaubsantrag</b:AnchorListItem>
   			<b:AnchorListItem>Status aktueller Anträge</b:AnchorListItem>
   			<b:AnchorListItem>Historie</b:AnchorListItem>
 	</b:NavPills>
+	
   </b:PanelBody>
   <b:PanelFooter>
     
