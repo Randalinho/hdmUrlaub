@@ -9,10 +9,8 @@
 	}
 	
 
-@external nav-pills;
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
-    background-color:red;
-}
+
+
 
 
 	
@@ -24,8 +22,8 @@
   </b:PanelHeader>
   <b:PanelBody>
     
-    <b:NavPills addStyleNames="nav-pills" stacked="true">
-  			<b:AnchorListItem active="true">Neuer Urlaubsantrag</b:AnchorListItem>
+    <b:NavPills stacked="true">
+  			<b:AnchorListItem addStyleNames="nav-pills" active="true">Neuer Urlaubsantrag</b:AnchorListItem>
   			<b:AnchorListItem>Status aktueller Anträge</b:AnchorListItem>
   			<b:AnchorListItem>Historie</b:AnchorListItem>
 	</b:NavPills>

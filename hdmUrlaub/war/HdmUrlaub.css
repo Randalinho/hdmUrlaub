@@ -10,10 +10,6 @@ h1 {
   text-align: center;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
-    background-color: red;
-}
-
 .sendButton {
   display: block;
   font-size: 16pt;

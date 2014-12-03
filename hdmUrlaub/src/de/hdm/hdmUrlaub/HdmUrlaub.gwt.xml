@@ -30,4 +30,12 @@
   <add-linker name="xsiframe"/>
   <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
   <inherits name="org.gwtbootstrap3.GwtBootstrap3Theme"/>
+  
+  <public path='resources'>
+        <include name='css/*.css'/>
+        
+    </public>
+
+    <stylesheet src='css/bootstrap.min.css'/>
+  
 </module>
