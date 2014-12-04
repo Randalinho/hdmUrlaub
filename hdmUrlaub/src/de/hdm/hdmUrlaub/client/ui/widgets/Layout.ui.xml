@@ -3,15 +3,23 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
 	<ui:style>
-	
+
 	</ui:style>
 	
-	
-	<b:NavPills stacked="true">
-  			<b:AnchorListItem ui:field="antrag" active="true">Neuer Urlaubsantrag</b:AnchorListItem>
-  			<b:AnchorListItem>Status aktueller Anträge</b:AnchorListItem>
-  			<b:AnchorListItem>Historie</b:AnchorListItem>
-	</b:NavPills>
-	
+	<b:Panel>
+		
+		<b:PanelHeader>
+    		<b:Heading size="H3" text="Hauptmenue"/>
+  		</b:PanelHeader>
+  
+  		<b:PanelBody ui:field="body">
+  	
+  		</b:PanelBody>
+  
+  		<b:PanelFooter>
+    
+  		</b:PanelFooter>
+		
+	</b:Panel>
 	
 </ui:UiBinder> 

@@ -1,6 +1,6 @@
 package de.hdm.hdmUrlaub.client;
 
-import de.hdm.hdmUrlaub.client.ui.widgets.Menue;
+import de.hdm.hdmUrlaub.client.ui.widgets.Layout;
 import de.hdm.hdmUrlaub.shared.FieldVerifier;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -37,7 +37,7 @@ public class HdmUrlaub implements EntryPoint {
 	private final GreetingServiceAsync greetingService = GWT
 			.create(GreetingService.class);
 
-	Menue myMenue = new Menue();
+	Layout myMenue = new Layout();
 	
 	/**
 	 * This is the entry point method.
