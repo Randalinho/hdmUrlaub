@@ -7,6 +7,7 @@
 	</ui:style>
 	
 	
+	
 	<b:NavPills stacked="true">
   			<b:AnchorListItem ui:field="antrag" active="true">Neuer Urlaubsantrag</b:AnchorListItem>
   			<b:AnchorListItem>Status aktueller Anträge</b:AnchorListItem>

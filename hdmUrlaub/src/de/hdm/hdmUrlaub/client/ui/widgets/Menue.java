@@ -34,7 +34,7 @@ public class Menue extends Composite {
 	
 	@UiHandler("antrag")
 	void onClick(ClickEvent e){
-		RootPanel.get().clear();
+		
 		RootPanel.get().add(urlaubsantrag);
 	}
 
