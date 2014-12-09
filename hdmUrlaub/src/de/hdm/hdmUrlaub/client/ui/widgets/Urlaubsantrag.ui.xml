@@ -6,22 +6,20 @@
 	
 	</ui:style>
 
-	<b:Panel>
+		<b:PanelBody ui:field="body">
 
-		<b:Label text="Urlaubsbeginn:" type="PRIMARY" />
+			<b:Label text="Urlaubsbeginn:" type="PRIMARY" />
 
-		<b2:DateTimePicker ui:field="datetimepicker"
-			autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
+			<b2:DateTimePicker ui:field="datetimepicker"
+				autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
 
-		<b:Label text="Urlaubsende:" type="PRIMARY" />
+			<b:Label text="Urlaubsende:" type="PRIMARY" />
 
-		<b2:DateTimePicker ui:field="datetimepicker2"
-			autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
+			<b2:DateTimePicker ui:field="datetimepicker2"
+				autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
 
-		<b:Label ui:field="urlaubstage" text="Urlaubstage:" type="PRIMARY" />
-		
+			<b:Label ui:field="urlaubstage" text="Urlaubstage:" type="PRIMARY" />
 
-
-	</b:Panel>
+		</b:PanelBody>
 
 </ui:UiBinder> 

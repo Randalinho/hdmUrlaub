@@ -1,5 +1,6 @@
 package de.hdm.hdmUrlaub.client.ui.widgets;
 
+import org.gwtbootstrap3.client.ui.Panel;
 import org.gwtbootstrap3.client.ui.PanelBody;
 
 import com.google.gwt.core.client.GWT;
@@ -11,6 +12,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class Layout extends Composite {
@@ -20,15 +22,21 @@ public class Layout extends Composite {
 	interface MenueUiBinder extends UiBinder<Widget, Layout> {
 	}
 
-	final Menue menue = new Menue();
+	Menue menue = new Menue();
+	final Header header = new Header("Hauptmenü");
+	final Content content = new Content(menue);
+	final Footer footer = new Footer();
+	
 	
 	@UiField
-	PanelBody body;
+	Panel panel;
 	
 	public Layout() {
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		body.add(menue);
+		RootPanel.get("header").add(header);
+		RootPanel.get("content").add(content);
+		RootPanel.get("footer").add(footer);
 	}
 
 

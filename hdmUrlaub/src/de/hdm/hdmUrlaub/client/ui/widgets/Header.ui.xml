@@ -3,12 +3,13 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
 	<ui:style>
-
+	
 	</ui:style>
 	
-	
-	<b:Panel ui:field="panel">
-		
+	<b:Panel>
+		<b:PanelHeader>
+			<b:Heading ui:field="ueberschrift" size="H3" text="Hauptmenue" />
+		</b:PanelHeader>
 	</b:Panel>
 	
 </ui:UiBinder> 

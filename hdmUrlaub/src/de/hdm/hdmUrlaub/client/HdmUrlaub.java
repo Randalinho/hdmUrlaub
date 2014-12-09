@@ -37,7 +37,7 @@ public class HdmUrlaub implements EntryPoint {
 	private final GreetingServiceAsync greetingService = GWT
 			.create(GreetingService.class);
 
-	Layout myMenue = new Layout();
+	Layout myLayout = new Layout();
 	
 	/**
 	 * This is the entry point method.
@@ -45,7 +45,7 @@ public class HdmUrlaub implements EntryPoint {
 	public void onModuleLoad() {
 	
 		
-		RootPanel.get().add(myMenue);
+		RootPanel.get("container").add(myLayout);
 		
 	}
 }

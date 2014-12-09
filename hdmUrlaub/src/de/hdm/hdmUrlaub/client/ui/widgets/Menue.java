@@ -18,6 +18,7 @@ public class Menue extends Composite {
 	
 	
 	Urlaubsantrag urlaubsantrag = new Urlaubsantrag();
+	Header header = new Header("Urlaubsantrag");
 	
 	
 	
@@ -34,8 +35,13 @@ public class Menue extends Composite {
 	
 	@UiHandler("antrag")
 	void onClick(ClickEvent e){
+
+		RootPanel.get("header").clear();
+		RootPanel.get("header").add(header);
+		RootPanel.get("content").clear();
+		RootPanel.get("content").add(urlaubsantrag);
 		
-		RootPanel.get().add(urlaubsantrag);
+		
 	}
 
 }
