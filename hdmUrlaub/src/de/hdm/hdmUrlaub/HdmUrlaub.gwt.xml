@@ -31,6 +31,7 @@
   <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
   <inherits name="org.gwtbootstrap3.GwtBootstrap3Theme"/>
   <inherits name="org.gwtbootstrap3.extras.datetimepicker.DateTimePicker"/>
+  <inherits name="org.gwtbootstrap3.extras.select.Select"/>
   
   <public path='resources'>
         <include name='css/*.css'/>
