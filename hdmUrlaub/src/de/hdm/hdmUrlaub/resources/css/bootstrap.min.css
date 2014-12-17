@@ -5766,3 +5766,7 @@ button.close {
     display: none !important;
   }
 }
+
+.standard2 {
+	margin-top: 30px !important;
+}
