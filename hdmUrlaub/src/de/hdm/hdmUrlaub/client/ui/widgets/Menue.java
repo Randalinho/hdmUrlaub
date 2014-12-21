@@ -22,13 +22,12 @@ public class Menue extends Composite {
 	
 	
 	
+	
 	interface MenueUiBinder extends UiBinder<Widget, Menue> {
 	}
 
 	public Menue() {
 		initWidget(uiBinder.createAndBindUi(this));
-		
-		
 	}
 	
 	@UiField AnchorListItem antrag;
@@ -40,8 +39,6 @@ public class Menue extends Composite {
 		RootPanel.get("header").add(header);
 		RootPanel.get("content").clear();
 		RootPanel.get("content").add(urlaubsantrag);
-		
-		
 	}
 
 }
