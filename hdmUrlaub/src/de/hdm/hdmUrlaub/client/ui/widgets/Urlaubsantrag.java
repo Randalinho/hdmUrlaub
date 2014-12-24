@@ -29,8 +29,6 @@ public class Urlaubsantrag extends Composite {
 	@UiField
 	Label urlaubstage;
 	@UiField
-	TextBox vertretung;
-	@UiField
 	Button btzur;
 	@UiField
 	Button btabs;
@@ -59,15 +57,15 @@ public class Urlaubsantrag extends Composite {
 //						datetimepicker2.getValue(), TimeUnit.DAYS));
 //	}
 	
-	@UiHandler("vertretung")
-	void onFocus(FocusEvent e) {
-		vertretung.setText(" ");
-	}
+//	@UiHandler("vertretung")
+//	void onFocus(FocusEvent e) {
+//		vertretung.setText(" ");
+//	}
 	
 	@UiHandler("btzur")
 	void onClick(ClickEvent e) {
 		Menue menue = new Menue();
-		Header header = new Header("Hauptmen�");
+		Header header = new Header("Hauptmenü");
 		RootPanel.get("header").clear();
 		RootPanel.get("header").add(header);
 		RootPanel.get("content").clear();

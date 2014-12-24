@@ -23,7 +23,7 @@ public class Layout extends Composite {
 	}
 
 	Menue menue = new Menue();
-	final Header header = new Header("Hauptmenü");
+	final Header header = new Header("HauptmenÃ¼");
 	final Content content = new Content(menue);
 	final Footer footer = new Footer();
 	
