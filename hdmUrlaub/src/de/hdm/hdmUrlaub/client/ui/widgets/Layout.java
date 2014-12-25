@@ -23,7 +23,8 @@ public class Layout extends Composite {
 	}
 
 	Menue menue = new Menue();
-	final Header header = new Header("Hauptmenü");
+	final Ueberschrift ueberschrift = new Ueberschrift("Hauptmenü");
+	final Header header = new Header(ueberschrift);
 	final Content content = new Content(menue);
 	final Footer footer = new Footer();
 	
@@ -34,8 +35,8 @@ public class Layout extends Composite {
 	public Layout() {
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		RootPanel.get("header").add(header);
-		RootPanel.get("content").add(content);
+//		RootPanel.get("header").add(header);
+//		RootPanel.get("content").add(content);
 		RootPanel.get("footer").add(footer);
 	}
 

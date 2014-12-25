@@ -6,21 +6,22 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class Header extends Composite {
+public class Ueberschrift extends Composite {
 
-	private static HeaderUiBinder uiBinder = GWT.create(HeaderUiBinder.class);
-
-	interface HeaderUiBinder extends UiBinder<Widget, Header> {
-	}
+	@UiField
+	Heading ueberschrift;
 	
-	public Header(Ueberschrift ueberschrift) {
+	private static UeberschriftUiBinder uiBinder = GWT
+			.create(UeberschriftUiBinder.class);
+
+	interface UeberschriftUiBinder extends UiBinder<Widget, Ueberschrift> {
+	}
+
+	public Ueberschrift(String text) {
 		initWidget(uiBinder.createAndBindUi(this));
-		
-		RootPanel.get("header").clear();
-		RootPanel.get("header").add(ueberschrift);
+		ueberschrift.setText(text);
 	}
-	
+
 }

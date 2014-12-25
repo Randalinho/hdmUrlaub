@@ -17,8 +17,7 @@ public class Menue extends Composite {
 
 	
 	
-	Urlaubsantrag urlaubsantrag = new Urlaubsantrag();
-	Header header = new Header("Urlaubsantrag");
+	
 	
 	
 	
@@ -33,12 +32,21 @@ public class Menue extends Composite {
 	@UiField AnchorListItem antrag;
 	
 	@UiHandler("antrag")
-	void onClick(ClickEvent e){
+	void onClickAntrag(ClickEvent e){
 
-		RootPanel.get("header").clear();
-		RootPanel.get("header").add(header);
-		RootPanel.get("content").clear();
-		RootPanel.get("content").add(urlaubsantrag);
+		Ueberschrift ueberschrift = new Ueberschrift("Neuer Urlaubsantrag");
+		Urlaubsantrag urlaubsantrag = new Urlaubsantrag();
+		Header header = new Header(ueberschrift);
+		Content content = new Content(urlaubsantrag);
+	}
+	
+	@UiHandler("status")
+	void onClickStatus(ClickEvent e){
+
+		Ueberschrift ueberschrift = new Ueberschrift("Status aktueller Anträge");
+		Status status = new Status();
+		Header header = new Header(ueberschrift);
+		Content content = new Content(status);
 	}
 
 }
