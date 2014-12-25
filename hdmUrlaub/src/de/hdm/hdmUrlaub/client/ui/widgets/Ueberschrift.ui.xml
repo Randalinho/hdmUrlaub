@@ -5,17 +5,14 @@
 	.zentriert {
 		text-align: center;
 	}
-	
 	</ui:style>
 
+	<b:Panel>
+		<b:PanelHeader addStyleNames="{style.zentriert}">
 
+			<b:Heading ui:field="ueberschrift" size="H3" text="Hauptmenü" />
 
-	<b:NavPills stacked="true" addStyleNames="{style.zentriert}">
-		<b:AnchorListItem ui:field="antrag">Neuer
-			Urlaubsantrag</b:AnchorListItem>
-		<b:AnchorListItem ui:field="status">Status aktueller Anträge</b:AnchorListItem>
-		<b:AnchorListItem>Historie</b:AnchorListItem>
-	</b:NavPills>
-
+		</b:PanelHeader>
+	</b:Panel>
 
 </ui:UiBinder> 

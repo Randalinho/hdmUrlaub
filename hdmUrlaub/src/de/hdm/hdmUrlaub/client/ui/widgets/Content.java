@@ -19,6 +19,7 @@ public class Content extends Composite {
 	public Content(Widget widget) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
+		RootPanel.get("content").clear();
 		RootPanel.get("content").add(widget);
 	}
 

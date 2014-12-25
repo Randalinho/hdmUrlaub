@@ -4,89 +4,160 @@
 	xmlns:b2="urn:import:org.gwtbootstrap3.extras.datetimepicker.client.ui"
 	xmlns:select="urn:import:org.gwtbootstrap3.extras.select.client.ui">
 	<ui:style>
-		.margintop { margin-top: 20px !important; }
-		.marginbot { margin-bottom: 20px !important; }
-		.zentriert { margin-left: auto !important; margin-right: auto !important; display: block !important; }
+	.margintop {
+		margin-top: 30px !important;
+	}
+	
+	.marginbot {
+		margin-bottom: 20px !important;
+	}
+	
+	.zentriert {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block !important;
+	}
 	</ui:style>
-	
-	
-	
+
+
+
 	<b:PanelBody ui:field="body">
-		
+
 		<b:Container fluid="true">
 
-		<b:Row>
-		
-		<b:Column size="XS_1,SM_4,MD_4"></b:Column>
-	
-		<b:Column size="XS_4,SM_4,MD_4">
-		
-		<b:Label text="Urlaubsbeginn:" type="PRIMARY" />
+			<b:Row>
 
-		<b2:DateTimePicker ui:field="datetimepicker1"
-			autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
-		
-		</b:Column>
-		
-		<b:Column size="XS_1,SM_1,MD_4"></b:Column>
-		
-		</b:Row>
-		
-		<b:Row>
-	
-		<b:Column size="XS_6,SM_4,MD_3,LG_1">
-		
-		<b:Label ui:field="lburlaubsende" text="Urlaubsende:" type="PRIMARY" />
 
-		<b2:DateTimePicker ui:field="datetimepicker2"
-			autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
-		
-		</b:Column>	
-		
-		</b:Row>
-		
-		<b:Row>
-	
-		<b:Column size="XS_6,SM_4,MD_3,LG_1">
 
-		<b:Label ui:field="urlaubstage" text="Urlaubstage: " type="PRIMARY" />
-		
-		</b:Column>	
-		
-		</b:Row>
-		
-		<b:Row>
-	
-		<b:Column size="XS_6,SM_4,MD_3,LG_1">
+				<b:Column size="XS_6,SM_6,MD_6">
 
-		<b:Label  text="Fachvorgesetzter:" />
+					<b:Label text="Urlaubsbeginn:" type="PRIMARY" />
 
-		<select:Select liveSearch="true">
-			<select:Option text="Röber" />
-			<select:Option text="Schmieder" />
-			<select:Option text="Hauck" />
-		</select:Select>
-		
-		</b:Column>	
-		
-		</b:Row>
-		
-		<b:Row>
-	
-		<b:Column size="XS_6,SM_4,MD_3,LG_1">
-		
-		<b:TextBox ui:field="vertretung" name="Vertretung" text="Vertretung (optional)"></b:TextBox>
-	
-		</b:Column>	
-		
-		</b:Row>
-	
-	
-	
-	</b:Container>
-	
+					<b:InputGroup>
+						<b:InputGroupAddon icon="CALENDAR" />
+						<b2:DateTimePicker ui:field="datetimepicker1"
+							autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
+					</b:InputGroup>
+
+				</b:Column>
+
+
+
+
+				<b:Column size="XS_6,SM_6,MD_6">
+
+					<b:Label ui:field="lburlaubsende" text="Urlaubsende:" type="PRIMARY" />
+
+					<b:InputGroup>
+						<b:InputGroupAddon icon="CALENDAR" />
+						<b2:DateTimePicker ui:field="datetimepicker2"
+							autoClose="true" minView="MONTH" format="dd/mm/yyyy" />
+					</b:InputGroup>
+
+				</b:Column>
+
+
+
+			</b:Row>
+
+			<b:Row addStyleNames="{style.margintop}">
+
+
+
+				<b:Column size="XS_4,SM_4,MD_4">
+
+					<b:Label ui:field="urlaubstage" text="Urlaubstage: " type="PRIMARY" />
+
+				</b:Column>
+
+
+
+			</b:Row>
+
+			<b:Row addStyleNames="{style.margintop}">
+
+
+
+				<b:Column size="XS_4,SM_4,MD_4">
+
+					<b:Label type="PRIMARY" text="Fachvorgesetzter:" />
+
+				</b:Column>
+
+			</b:Row>
+
+			<b:Row>
+
+				<b:Column size="XS_10,SM_10,MD_10">
+
+					<select:Select liveSearch="true" width="275">
+						
+							<select:Option text="Röber" />
+							<select:Option text="Schmieder" />
+							<select:Option text="Hauck" />
+						
+					</select:Select>
+
+				</b:Column>
+
+			</b:Row>
+
+			<b:Row addStyleNames="{style.margintop}">
+
+
+
+				<b:Column size="XS_4,SM_4,MD_4">
+
+					<b:Label type="PRIMARY" text="Vertretung:" />
+
+				</b:Column>
+
+			</b:Row>
+
+			<b:Row>
+
+				<b:Column size="XS_10,SM_10,MD_10">
+
+					<b:InputGroup>
+						<b:InputGroupAddon ui:field="vertretung" icon="USER" />
+						<b:TextBox placeholder="Name der Vertretung (optional)"
+							autoComplete="false" />
+
+					</b:InputGroup>
+
+				</b:Column>
+
+
+
+			</b:Row>
+
+			<b:Row addStyleNames="{style.margintop}">
+
+
+
+				<b:Column size="XS_8,SM_8,MD_8">
+
+					<b:Button ui:field="btzur" text="zurück" icon="NAVICON"
+						type="DEFAULT" />
+
+
+				</b:Column>
+
+				<b:Column size="XS_2,SM_2,MD_2">
+
+					<b:Button ui:field="btabs" text="Absenden" icon="ENVELOPE"
+						iconPosition="RIGHT" type="SUCCESS" dataLoadingText="Wird gesendet..." />
+
+				</b:Column>
+
+
+
+			</b:Row>
+
+		</b:Container>
+
 	</b:PanelBody>
-	
-	
+
+
 
 </ui:UiBinder> 
