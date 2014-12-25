@@ -11,9 +11,9 @@
 
 
 	<b:NavPills stacked="true" addStyleNames="{style.zentriert}">
-		<b:AnchorListItem ui:field="antrag" active="true">Neuer
+		<b:AnchorListItem ui:field="antrag">Neuer
 			Urlaubsantrag</b:AnchorListItem>
-		<b:AnchorListItem>Status aktueller Anträge</b:AnchorListItem>
+		<b:AnchorListItem ui:field="status">Status aktueller Anträge</b:AnchorListItem>
 		<b:AnchorListItem>Historie</b:AnchorListItem>
 	</b:NavPills>
 

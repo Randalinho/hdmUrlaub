@@ -4,43 +4,6 @@
 	xmlns:b2="urn:import:org.gwtbootstrap3.extras.datetimepicker.client.ui"
 	xmlns:select="urn:import:org.gwtbootstrap3.extras.select.client.ui">
 	<ui:style>
-	@external .datetimepicker;
-	.datetimepicker table tr td.active:hover, .datetimepicker table tr td.active:hover:hover,
-		.datetimepicker table tr td.active.disabled:hover, .datetimepicker table tr td.active.disabled:hover:hover,
-		.datetimepicker table tr td.active:active, .datetimepicker table tr td.active:hover:active,
-		.datetimepicker table tr td.active.disabled:active, .datetimepicker table tr td.active.disabled:hover:active,
-		.datetimepicker table tr td.active.active, .datetimepicker table tr td.active:hover.active,
-		.datetimepicker table tr td.active.disabled.active, .datetimepicker table tr td.active.disabled:hover.active,
-		.datetimepicker table tr td.active.disabled, .datetimepicker table tr td.active:hover.disabled,
-		.datetimepicker table tr td.active.disabled.disabled, .datetimepicker table tr td.active.disabled:hover.disabled,
-		.datetimepicker table tr td.active[disabled], .datetimepicker table tr td.active:hover[disabled],
-		.datetimepicker table tr td.active.disabled[disabled], .datetimepicker table tr td.active.disabled:hover[disabled]
-		{
-		background-color: #CF012F
-	}
-	
-	.datetimepicker table tr td.active:active, .datetimepicker table tr td.active:hover:active,
-		.datetimepicker table tr td.active.disabled:active, .datetimepicker table tr td.active.disabled:hover:active,
-		.datetimepicker table tr td.active.active, .datetimepicker table tr td.active:hover.active,
-		.datetimepicker table tr td.active.disabled.active, .datetimepicker table tr td.active.disabled:hover.active
-		{
-		background-color: #CF012F
-	}
-	
-	.datetimepicker table tr td span.active:active, .datetimepicker table tr td span.active:hover:active,
-	.datetimepicker table tr td span.active.disabled:active,
-	.datetimepicker table tr td span.active.disabled:hover:active,
-	.datetimepicker table tr td span.active.active, .datetimepicker table tr td span.active:hover.active,
-	.datetimepicker table tr td span.active.disabled.active,
-	.datetimepicker table tr td span.active.disabled:hover.active {
-	background-color: #CF012F
-}
-	
-	.datetimepicker {table tr td.active.disabled:hover [disabled ]{background-color
-		: red!important;
-		
-	}
-	
 	.margintop {
 		margin-top: 30px !important;
 	}
@@ -128,9 +91,11 @@
 				<b:Column size="XS_10,SM_10,MD_10">
 
 					<select:Select liveSearch="true" width="275">
-						<select:Option text="Röber" />
-						<select:Option text="Schmieder" />
-						<select:Option text="Hauck" />
+						
+							<select:Option text="Röber" />
+							<select:Option text="Schmieder" />
+							<select:Option text="Hauck" />
+						
 					</select:Select>
 
 				</b:Column>
