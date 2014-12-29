@@ -12,8 +12,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "urlaubsantrag", catalog = "mydb")
-public class Urlaubsantrag implements java.io.Serializable {
+public class Urlaubsantrag extends HibernateObject {
 
+	private static final long serialVersionUID = 5900487091816780652L;
 	private int id;
 	private Character status;
 	private Integer anzahltage;

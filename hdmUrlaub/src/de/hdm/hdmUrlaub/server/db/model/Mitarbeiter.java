@@ -12,8 +12,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "mitarbeiter", catalog = "mydb")
-public class Mitarbeiter implements java.io.Serializable {
+public class Mitarbeiter extends HibernateObject {
 
+	private static final long serialVersionUID = 4960001807223767363L;
 	private int id;
 	private String vorname;
 	private String nachname;

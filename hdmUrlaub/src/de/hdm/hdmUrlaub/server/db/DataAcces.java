@@ -36,7 +36,7 @@ public class DataAcces {
 		getEntityManager();
 
 		List<Urlaubsantrag> list = entityManager.createQuery(
-				"Select kategorie FROM Kategorie kategorie",
+				"Select urlaubsantrag FROM Urlaubsantrag urlaubsantrag",
 				Urlaubsantrag.class).getResultList();
 
 		closeEntityManagerAndFactory();

@@ -15,8 +15,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "zeitraum", catalog = "mydb")
-public class Zeitraum implements java.io.Serializable {
+public class Zeitraum extends HibernateObject {
 
+	private static final long serialVersionUID = -330056528917111562L;
 	private int id;
 	private Date beginn;
 	private Date ende;
