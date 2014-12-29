@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="de/hdm/hdmUrlaub/resources/bootstrap-datetimepicker-master/" kind="src" path="src"/>
-	<classpathentry kind="lib" path="3rdpartylibs/mysql-connector-java-5.1.34-bin.jar"/>
 	<classpathentry kind="lib" path="3rdpartylibs/gwtbootstrap3-0.8.1.jar"/>
 	<classpathentry kind="lib" path="3rdpartylibs/gwtbootstrap3-extras-0.8.1.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/classmate-0.5.4.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/hibernate-commons-annotations-4.0.5.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/hibernate-core-4.3.7.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/jandex-1.1.0.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/javassist-3.18.1-GA.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/jboss-logging-3.1.3.GA.jar"/>
-	<classpathentry kind="lib" path="hibernateForCodeGeneration/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="hibernateForCodeGeneration/mysql-connector-java-5.1.34-bin.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/GWT"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
