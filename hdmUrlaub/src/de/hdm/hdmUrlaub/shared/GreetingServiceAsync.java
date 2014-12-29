@@ -1,6 +1,10 @@
-package de.hdm.hdmUrlaub.client;
+package de.hdm.hdmUrlaub.shared;
+
+import java.util.List;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+
+import de.hdm.hdmUrlaub.shared.bo.UrlaubsantragBo;
 
 /**
  * The async counterpart of <code>GreetingService</code>.
@@ -8,4 +12,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 public interface GreetingServiceAsync {
 	void greetServer(String input, AsyncCallback<String> callback)
 			throws IllegalArgumentException;
+
+	void getUrlaubsantrags(AsyncCallback<List<UrlaubsantragBo>> callback);
 }

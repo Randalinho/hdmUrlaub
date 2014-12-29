@@ -1,7 +1,13 @@
 package de.hdm.hdmUrlaub.client;
 
+import java.util.List;
+
 import de.hdm.hdmUrlaub.client.ui.widgets.Layout;
+import de.hdm.hdmUrlaub.server.db.model.Urlaubsantrag;
 import de.hdm.hdmUrlaub.shared.FieldVerifier;
+import de.hdm.hdmUrlaub.shared.GreetingService;
+import de.hdm.hdmUrlaub.shared.GreetingServiceAsync;
+import de.hdm.hdmUrlaub.shared.bo.UrlaubsantragBo;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -32,20 +38,42 @@ public class HdmUrlaub implements EntryPoint {
 			+ "connection and try again.";
 
 	/**
-	 * Create a remote service proxy to talk to the server-side Greeting service.
+	 * Create a remote service proxy to talk to the server-side Greeting
+	 * service.
 	 */
 	private final GreetingServiceAsync greetingService = GWT
 			.create(GreetingService.class);
 
 	Layout myLayout = new Layout();
-	
+
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-	
-		
+
+		Label label;
+		label = new Label();
+
+		GreetingServiceAsync greetingService = GWT
+				.create(GreetingService.class);
+
+		greetingService
+				.getUrlaubsantrags(new AsyncCallback<List<UrlaubsantragBo>>() {
+
+					@Override
+					public void onSuccess(List<UrlaubsantragBo> result) {
+						label.setText(result.get(1).getVertretung());
+					}
+
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO Auto-generated method stub
+
+					}
+				});
+
 		RootPanel.get("container").add(myLayout);
-		
+
+		RootPanel.get().add(label);
 	}
 }

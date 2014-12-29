@@ -20,6 +20,7 @@ public class Urlaubsantrag extends HibernateObject {
 	private Integer anzahltage;
 	private String fachvorgesetzter;
 	private String vertretung;
+	private Integer mitarbeiterId;
 
 	public Urlaubsantrag() {
 	}
@@ -29,12 +30,13 @@ public class Urlaubsantrag extends HibernateObject {
 	}
 
 	public Urlaubsantrag(int id, Character status, Integer anzahltage,
-			String fachvorgesetzter, String vertretung) {
+			String fachvorgesetzter, String vertretung, Integer mitarbeiterId) {
 		this.id = id;
 		this.status = status;
 		this.anzahltage = anzahltage;
 		this.fachvorgesetzter = fachvorgesetzter;
 		this.vertretung = vertretung;
+		this.setMitarbeiterId(mitarbeiterId);
 	}
 
 	@Id
@@ -81,6 +83,15 @@ public class Urlaubsantrag extends HibernateObject {
 
 	public void setVertretung(String vertretung) {
 		this.vertretung = vertretung;
+	}
+	
+	@Column (name="mitarbeiter-id")
+	public Integer getMitarbeiterId() {
+		return mitarbeiterId;
+	}
+
+	public void setMitarbeiterId(Integer mitarbeiterId) {
+		this.mitarbeiterId = mitarbeiterId;
 	}
 
 }
