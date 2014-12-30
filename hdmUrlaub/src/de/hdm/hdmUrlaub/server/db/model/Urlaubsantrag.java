@@ -1,10 +1,17 @@
 package de.hdm.hdmUrlaub.server.db.model;
 
-// Generated 21.12.2014 16:59:54 by Hibernate Tools 4.3.1
+// Generated 30.12.2014 17:40:22 by Hibernate Tools 4.3.1
+
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -14,29 +21,36 @@ import javax.persistence.Table;
 @Table(name = "urlaubsantrag", catalog = "mydb")
 public class Urlaubsantrag extends HibernateObject {
 
-	private static final long serialVersionUID = 5900487091816780652L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4828292215814802589L;
 	private int id;
+	private Mitarbeiter mitarbeiter;
 	private Character status;
 	private Integer anzahltage;
 	private String fachvorgesetzter;
 	private String vertretung;
-	private Integer mitarbeiterId;
+	private Set<Zeitraum> zeitraums = new HashSet<Zeitraum>(0);
 
 	public Urlaubsantrag() {
 	}
 
-	public Urlaubsantrag(int id) {
+	public Urlaubsantrag(int id, Mitarbeiter mitarbeiter) {
 		this.id = id;
+		this.mitarbeiter = mitarbeiter;
 	}
 
-	public Urlaubsantrag(int id, Character status, Integer anzahltage,
-			String fachvorgesetzter, String vertretung, Integer mitarbeiterId) {
+	public Urlaubsantrag(int id, Mitarbeiter mitarbeiter, Character status,
+			Integer anzahltage, String fachvorgesetzter, String vertretung,
+			Set<Zeitraum> zeitraums) {
 		this.id = id;
+		this.mitarbeiter = mitarbeiter;
 		this.status = status;
 		this.anzahltage = anzahltage;
 		this.fachvorgesetzter = fachvorgesetzter;
 		this.vertretung = vertretung;
-		this.setMitarbeiterId(mitarbeiterId);
+		this.zeitraums = zeitraums;
 	}
 
 	@Id
@@ -47,6 +61,16 @@ public class Urlaubsantrag extends HibernateObject {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "mitarbeiter_id", nullable = false)
+	public Mitarbeiter getMitarbeiter() {
+		return this.mitarbeiter;
+	}
+
+	public void setMitarbeiter(Mitarbeiter mitarbeiter) {
+		this.mitarbeiter = mitarbeiter;
 	}
 
 	@Column(name = "status", length = 1)
@@ -84,14 +108,14 @@ public class Urlaubsantrag extends HibernateObject {
 	public void setVertretung(String vertretung) {
 		this.vertretung = vertretung;
 	}
-	
-	@Column (name="mitarbeiter-id")
-	public Integer getMitarbeiterId() {
-		return mitarbeiterId;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "urlaubsantrag")
+	public Set<Zeitraum> getZeitraums() {
+		return this.zeitraums;
 	}
 
-	public void setMitarbeiterId(Integer mitarbeiterId) {
-		this.mitarbeiterId = mitarbeiterId;
+	public void setZeitraums(Set<Zeitraum> zeitraums) {
+		this.zeitraums = zeitraums;
 	}
 
 }

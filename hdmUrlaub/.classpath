@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="de/hdm/hdmUrlaub/resources/bootstrap-datetimepicker-master/" kind="src" path="src"/>
-	<classpathentry kind="lib" path="3rdpartylibs/gwtbootstrap3-0.8.1.jar"/>
-	<classpathentry kind="lib" path="3rdpartylibs/gwtbootstrap3-extras-0.8.1.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/GWT"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="lib" path="3rdpartylibs/gwtbootstrap3-0.8.1.jar"/>
+	<classpathentry kind="lib" path="3rdpartylibs/gwtbootstrap3-extras-0.8.1.jar"/>
 	<classpathentry kind="lib" path="3rdpartylibs/mysql-connector-java-5.1.34-bin.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

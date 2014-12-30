@@ -1,11 +1,15 @@
 package de.hdm.hdmUrlaub.server.db.model;
 
-// Generated 21.12.2014 16:59:54 by Hibernate Tools 4.3.1
+// Generated 30.12.2014 17:40:22 by Hibernate Tools 4.3.1
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,24 +21,28 @@ import javax.persistence.TemporalType;
 @Table(name = "zeitraum", catalog = "mydb")
 public class Zeitraum extends HibernateObject {
 
-	private static final long serialVersionUID = -330056528917111562L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2137162109841747310L;
 	private int id;
+	private Urlaubsantrag urlaubsantrag;
 	private Date beginn;
 	private Date ende;
-	private Integer urlaubsantragId;
 
 	public Zeitraum() {
 	}
 
-	public Zeitraum(int id) {
+	public Zeitraum(int id, Urlaubsantrag urlaubsantrag) {
 		this.id = id;
+		this.urlaubsantrag = urlaubsantrag;
 	}
 
-	public Zeitraum(int id, Date beginn, Date ende, Integer urlaubsantragId) {
+	public Zeitraum(int id, Urlaubsantrag urlaubsantrag, Date beginn, Date ende) {
 		this.id = id;
+		this.urlaubsantrag = urlaubsantrag;
 		this.beginn = beginn;
 		this.ende = ende;
-		this.urlaubsantragId = urlaubsantragId;
 	}
 
 	@Id
@@ -45,6 +53,16 @@ public class Zeitraum extends HibernateObject {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "urlaubsantrag_id", nullable = false)
+	public Urlaubsantrag getUrlaubsantrag() {
+		return this.urlaubsantrag;
+	}
+
+	public void setUrlaubsantrag(Urlaubsantrag urlaubsantrag) {
+		this.urlaubsantrag = urlaubsantrag;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -65,15 +83,6 @@ public class Zeitraum extends HibernateObject {
 
 	public void setEnde(Date ende) {
 		this.ende = ende;
-	}
-
-	@Column(name = "urlaubsantrag-id")
-	public Integer getUrlaubsantragId() {
-		return this.urlaubsantragId;
-	}
-
-	public void setUrlaubsantragId(Integer urlaubsantragId) {
-		this.urlaubsantragId = urlaubsantragId;
 	}
 
 }
