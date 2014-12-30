@@ -20,7 +20,8 @@ public class UrlaubsantragMapper implements
 	public UrlaubsantragBo getBo(Urlaubsantrag dbobject) {
 		UrlaubsantragBo urlaubsantragBo = new UrlaubsantragBo(dbobject.getId(),
 				dbobject.getVertretung(), dbobject.getFachvorgesetzter(),
-				dbobject.getAnzahltage(), dbobject.getMitarbeiterId());
+				dbobject.getAnzahltage(), mitarbeitermapper.getBo(dbobject
+						.getMitarbeiter()));
 
 		switch (dbobject.getStatus()) {
 		case 'g':

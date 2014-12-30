@@ -14,20 +14,20 @@ public class UrlaubsantragBo extends HdmUrlaubBusinessObject {
 
 	private Status status;
 
-	private int mitarbeiterId;
+	private MitarbeiterBo mitarbeiter;
 
 	public UrlaubsantragBo() {
 		super();
 	}
 
 	public UrlaubsantragBo(Integer id, String vertretung,
-			String fachvorgesetzter, int anzahltage, int mitarbeiterId) {
+			String fachvorgesetzter, int anzahltage, MitarbeiterBo mitarbeiter) {
 		super();
 		this.setId(id);
 		this.vertretung = vertretung;
 		this.fachvorgesetzter = fachvorgesetzter;
 		this.anzahltage = anzahltage;
-		this.mitarbeiterId = mitarbeiterId;
+		this.mitarbeiter = mitarbeiter;
 	}
 
 	public String getVertretung() {
@@ -62,12 +62,12 @@ public class UrlaubsantragBo extends HdmUrlaubBusinessObject {
 		this.status = status;
 	}
 
-	public int getMitarbeiterId() {
-		return mitarbeiterId;
+	public MitarbeiterBo getMitarbeiter() {
+		return mitarbeiter;
 	}
 
-	public void setMitarbeiterId(int mitarbeiterId) {
-		this.mitarbeiterId = mitarbeiterId;
+	public void setMitarbeiter(MitarbeiterBo mitarbeiter) {
+		this.mitarbeiter = mitarbeiter;
 	}
 
 }
