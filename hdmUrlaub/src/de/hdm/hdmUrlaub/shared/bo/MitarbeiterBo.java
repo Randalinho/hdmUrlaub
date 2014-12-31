@@ -1,5 +1,7 @@
 package de.hdm.hdmUrlaub.shared.bo;
 
+import java.util.List;
+
 public class MitarbeiterBo extends HdmUrlaubBusinessObject {
 
 	private static final long serialVersionUID = 2190497750177912427L;
@@ -8,15 +10,18 @@ public class MitarbeiterBo extends HdmUrlaubBusinessObject {
 
 	private String nachname;
 
+	private List<UrlaubsantragBo> urlaubsantraege;
+
 	public MitarbeiterBo() {
 		super();
 	}
 
-	public MitarbeiterBo(Integer id, String vorname, String nachname) {
+	public MitarbeiterBo(int id, String vorname, String nachname) {
 		super();
 		this.setId(id);
 		this.vorname = vorname;
 		this.nachname = nachname;
+
 	}
 
 	public String getVorname() {
@@ -33,6 +38,14 @@ public class MitarbeiterBo extends HdmUrlaubBusinessObject {
 
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
+	}
+
+	public List<UrlaubsantragBo> getUrlaubsantraege() {
+		return urlaubsantraege;
+	}
+
+	public void setUrlaubsantraege(List<UrlaubsantragBo> urlaubsantraege) {
+		this.urlaubsantraege = urlaubsantraege;
 	}
 
 }
