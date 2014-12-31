@@ -23,7 +23,7 @@ public class DataAcces {
 	private static final String PERSISTENCEUNIT = "hdmUrlaub";
 
 	public DataAcces() {
-
+		getEntityManager();
 	}
 
 	/**
@@ -33,13 +33,9 @@ public class DataAcces {
 	 */
 	public List<Urlaubsantrag> getAllUrlaubsantrags() {
 
-		getEntityManager();
-
 		List<Urlaubsantrag> list = entityManager.createQuery(
 				"Select urlaubsantrag FROM Urlaubsantrag urlaubsantrag",
 				Urlaubsantrag.class).getResultList();
-
-		closeEntityManagerAndFactory();
 
 		return list;
 	}
@@ -59,7 +55,7 @@ public class DataAcces {
 	/**
 	 * Schlieﬂt den {@link EntityManager} und die {@link EntityManagerFactory};
 	 */
-	private void closeEntityManagerAndFactory() {
+	public void closeEntityManagerAndFactory() {
 		entityManager.close();
 		entityManagerFactory.close();
 	}
