@@ -1,28 +1,44 @@
 package de.hdm.hdmUrlaub.server.db.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdm.hdmUrlaub.server.db.model.Zeitraum;
 import de.hdm.hdmUrlaub.shared.bo.ZeitraumBo;
 
+/**
+ * Wandelt ein Hibernate Object vom {@link Zeitraum} in ein Business Object vom Typ {@link ZeitraumBo} um.
+ * @author Fabian
+ *
+ */
 public class ZeitraumMapper implements DbMapper<ZeitraumBo, Zeitraum> {
+
+	UrlaubsantragMapper urlaubsantragMapper;
+
+	public ZeitraumMapper() {
+		urlaubsantragMapper = new UrlaubsantragMapper();
+	}
 
 	@Override
 	public ZeitraumBo getBo(Zeitraum dbobject) {
-		// TODO Auto-generated method stub
-		return null;
+		return new ZeitraumBo(dbobject.getId(), dbobject.getBeginn(),
+				dbobject.getEnde(), urlaubsantragMapper.getBo(dbobject
+						.getUrlaubsantrag()));
 	}
 
 	@Override
 	public List<ZeitraumBo> getBoList(List<Zeitraum> dbObjectListe) {
-		// TODO Auto-generated method stub
+		List<ZeitraumBo> zeitraums = new ArrayList<ZeitraumBo>();
+		for (Zeitraum zeitraum : dbObjectListe) {
+			zeitraums.add(getBo(zeitraum));
+		}
 		return null;
 	}
 
 	@Override
 	public Zeitraum getDbObject(ZeitraumBo bo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Zeitraum(bo.getId(), urlaubsantragMapper.getDbObject(bo
+				.getUrlaubsantrag()), bo.getBeginn(), bo.getEnde());
 	}
 
 }

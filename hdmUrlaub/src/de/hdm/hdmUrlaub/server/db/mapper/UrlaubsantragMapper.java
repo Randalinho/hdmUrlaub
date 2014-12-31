@@ -11,6 +11,11 @@ import de.hdm.hdmUrlaub.shared.bo.UrlaubsantragBo;
 import de.hdm.hdmUrlaub.shared.bo.ZeitraumBo;
 import de.hdm.hdmUrlaub.shared.enums.Status;
 
+/**
+ * Wandelt ein Hibernate Object vom {@link Urlaubsantrag} in ein Business Object vom Typ {@link UrlaubsantragBo} um.
+ * @author Fabian
+ *
+ */
 public class UrlaubsantragMapper implements
 		DbMapper<UrlaubsantragBo, Urlaubsantrag> {
 

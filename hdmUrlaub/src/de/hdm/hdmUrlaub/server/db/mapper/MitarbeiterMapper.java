@@ -10,6 +10,13 @@ import de.hdm.hdmUrlaub.server.db.model.Urlaubsantrag;
 import de.hdm.hdmUrlaub.shared.bo.MitarbeiterBo;
 import de.hdm.hdmUrlaub.shared.bo.UrlaubsantragBo;
 
+/**
+ * Wandelt ein Hibernate Object vom {@link Mitarbeiter} in ein Business Object
+ * vom Typ {@link MitarbeiterBo} um.
+ * 
+ * @author Fabian
+ *
+ */
 public class MitarbeiterMapper implements DbMapper<MitarbeiterBo, Mitarbeiter> {
 
 	private UrlaubsantragMapper urlaubsantragmapper;
