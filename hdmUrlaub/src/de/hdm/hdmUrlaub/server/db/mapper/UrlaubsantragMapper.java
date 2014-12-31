@@ -1,19 +1,25 @@
 package de.hdm.hdmUrlaub.server.db.mapper;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import de.hdm.hdmUrlaub.server.db.model.Urlaubsantrag;
+import de.hdm.hdmUrlaub.server.db.model.Zeitraum;
 import de.hdm.hdmUrlaub.shared.bo.UrlaubsantragBo;
+import de.hdm.hdmUrlaub.shared.bo.ZeitraumBo;
 import de.hdm.hdmUrlaub.shared.enums.Status;
 
 public class UrlaubsantragMapper implements
 		DbMapper<UrlaubsantragBo, Urlaubsantrag> {
 
 	private MitarbeiterMapper mitarbeitermapper;
+	private ZeitraumMapper zeitraumMapper;
 
 	public UrlaubsantragMapper() {
 		mitarbeitermapper = new MitarbeiterMapper();
+		zeitraumMapper = new ZeitraumMapper();
 	}
 
 	@Override
@@ -51,8 +57,25 @@ public class UrlaubsantragMapper implements
 
 	@Override
 	public Urlaubsantrag getDbObject(UrlaubsantragBo bo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		char status;
+		switch (bo.getStatus()) {
+		case GENEHMIGT:
+			status = 'g';
+			break;
+		case ABGELEHNT:
+			status = 'a';
+		case OFFEN:
+			status = 'o';
+		default:
+			status = 'o';
+		}
+		Set<Zeitraum> zeitraums = new HashSet<Zeitraum>();
+		for (ZeitraumBo zeitraumbo : bo.getZeitraums()) {
+			zeitraums.add(zeitraumMapper.getDbObject(zeitraumbo));
+		}
 
+		return new Urlaubsantrag(bo.getId(), mitarbeitermapper.getDbObject(bo
+				.getMitarbeiter()), status, bo.getAnzahltage(),
+				bo.getFachvorgesetzter(), bo.getVertretung(), zeitraums);
+	}
 }

@@ -2,6 +2,13 @@ package de.hdm.hdmUrlaub.shared.bo;
 
 import java.util.Date;
 
+/**
+ * Diese Klasse enth&auml;lt einen Zeitraum eines Urlaubsantrags. Ein
+ * Urlaubsantrag kann mehrere davon haben.
+ * 
+ * @author Fabian
+ *
+ */
 public class ZeitraumBo extends HdmUrlaubBusinessObject {
 
 	private static final long serialVersionUID = 3440962018375324263L;

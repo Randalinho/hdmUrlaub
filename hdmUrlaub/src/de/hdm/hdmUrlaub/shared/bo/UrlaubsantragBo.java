@@ -1,7 +1,15 @@
 package de.hdm.hdmUrlaub.shared.bo;
 
+import java.util.List;
+
 import de.hdm.hdmUrlaub.shared.enums.Status;
 
+/**
+ * Diese Klasse enth&auml;lt alle relevaten Daten zu einem Urlaubsantrag.
+ * 
+ * @author Fabian
+ *
+ */
 public class UrlaubsantragBo extends HdmUrlaubBusinessObject {
 
 	private static final long serialVersionUID = -7712834612413841876L;
@@ -15,6 +23,8 @@ public class UrlaubsantragBo extends HdmUrlaubBusinessObject {
 	private Status status;
 
 	private MitarbeiterBo mitarbeiter;
+
+	private List<ZeitraumBo> zeitraums;
 
 	public UrlaubsantragBo() {
 		super();
@@ -68,6 +78,14 @@ public class UrlaubsantragBo extends HdmUrlaubBusinessObject {
 
 	public void setMitarbeiter(MitarbeiterBo mitarbeiter) {
 		this.mitarbeiter = mitarbeiter;
+	}
+
+	public List<ZeitraumBo> getZeitraums() {
+		return zeitraums;
+	}
+
+	public void setZeitraums(List<ZeitraumBo> zeitraums) {
+		this.zeitraums = zeitraums;
 	}
 
 }
