@@ -15,4 +15,6 @@ public interface GreetingService extends RemoteService {
 	String greetServer(String name) throws IllegalArgumentException;
 
 	public List<UrlaubsantragBo> getUrlaubsantrags();
+
+	public void saveUrlaubsAntrag(UrlaubsantragBo urlaubsantragBo);
 }

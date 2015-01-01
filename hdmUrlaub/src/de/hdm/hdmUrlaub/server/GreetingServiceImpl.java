@@ -62,4 +62,10 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 				.getBoList(new DataAcces().getAllUrlaubsantrags());
 		return antraege;
 	}
+
+	@Override
+	public void saveUrlaubsAntrag(UrlaubsantragBo urlaubsantragBo) {
+		// TODO
+
+	}
 }

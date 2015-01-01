@@ -14,4 +14,7 @@ public interface GreetingServiceAsync {
 			throws IllegalArgumentException;
 
 	void getUrlaubsantrags(AsyncCallback<List<UrlaubsantragBo>> callback);
+
+	void saveUrlaubsAntrag(UrlaubsantragBo urlaubsantragBo,
+			AsyncCallback<Void> callback);
 }
