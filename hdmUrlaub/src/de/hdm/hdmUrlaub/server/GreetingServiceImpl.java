@@ -65,7 +65,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
 	@Override
 	public void saveUrlaubsAntrag(UrlaubsantragBo urlaubsantragBo) {
-		// TODO
+		
 
 	}
 }

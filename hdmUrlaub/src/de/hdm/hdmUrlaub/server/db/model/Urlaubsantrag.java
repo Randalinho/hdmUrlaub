@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,7 +27,7 @@ public class Urlaubsantrag extends HibernateObject {
 	 * 
 	 */
 	private static final long serialVersionUID = -4828292215814802589L;
-	private int id;
+	private Integer id;
 	private Mitarbeiter mitarbeiter;
 	private Character status;
 	private Integer anzahltage;
@@ -41,7 +43,7 @@ public class Urlaubsantrag extends HibernateObject {
 		this.mitarbeiter = mitarbeiter;
 	}
 
-	public Urlaubsantrag(int id, Mitarbeiter mitarbeiter, Character status,
+	public Urlaubsantrag(Integer id, Mitarbeiter mitarbeiter, Character status,
 			Integer anzahltage, String fachvorgesetzter, String vertretung,
 			Set<Zeitraum> zeitraums) {
 		this.id = id;
@@ -59,7 +61,7 @@ public class Urlaubsantrag extends HibernateObject {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

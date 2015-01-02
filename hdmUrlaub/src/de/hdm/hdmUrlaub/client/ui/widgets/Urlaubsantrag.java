@@ -65,7 +65,7 @@ public class Urlaubsantrag extends Composite {
 	@UiHandler("btzur")
 	void onClick(ClickEvent e) {
 		
-		Ueberschrift ueberschrift = new Ueberschrift("Hauptmenü");
+		Ueberschrift ueberschrift = new Ueberschrift("Hauptmen&uuml;");
 		Header header = new Header(ueberschrift);
 		Menue menue = new Menue();
 		Content content = new Content(menue);

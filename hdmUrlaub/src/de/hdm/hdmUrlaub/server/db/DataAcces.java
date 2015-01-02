@@ -40,6 +40,18 @@ public class DataAcces {
 		return list;
 	}
 
+	public void saveUrlaubsantrag(Urlaubsantrag urlaubsantrag) {
+		Urlaubsantrag UrlaubsantragToSave;
+		//if (urlaubsantrag.getId() != null) {
+			
+		//}
+
+	}
+
+	public void deleteUrlaubsantrag(Urlaubsantrag urlaubsantrag) {
+		// TODO
+	}
+
 	/**
 	 * Erstellt eine neue {@link EntityManagerFactory} und einen neuen
 	 * {@link EntityManager}.
