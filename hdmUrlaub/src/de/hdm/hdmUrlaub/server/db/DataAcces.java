@@ -1,12 +1,16 @@
 package de.hdm.hdmUrlaub.server.db;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import de.hdm.hdmUrlaub.server.db.model.Mitarbeiter;
 import de.hdm.hdmUrlaub.server.db.model.Urlaubsantrag;
+import de.hdm.hdmUrlaub.server.db.model.Zeitraum;
 
 /**
  * Klasse f&uuml;r alle Datenbankzugriffe.
@@ -33,21 +37,93 @@ public class DataAcces {
 	 */
 	public List<Urlaubsantrag> getAllUrlaubsantrags() {
 
-		List<Urlaubsantrag> list = entityManager.createQuery(
+		List<Urlaubsantrag> urlaubsantrags = entityManager.createQuery(
 				"Select urlaubsantrag FROM Urlaubsantrag urlaubsantrag",
 				Urlaubsantrag.class).getResultList();
 
-		return list;
+		return urlaubsantrags;
 	}
 
+	/**
+	 * Methode zum Abrufen aller {@link Mitarbeiter}.
+	 * 
+	 * @return
+	 */
+	public List<Mitarbeiter> getAllMitarbeiter() {
+
+		List<Mitarbeiter> mitarbeiters = entityManager.createQuery(
+				"Select mitarbeiter FROM Mitarbeiter mitarbeiter",
+				Mitarbeiter.class).getResultList();
+
+		return mitarbeiters;
+	}
+
+	/**
+	 * Methode zum Speichern eines {@link Urlaubsantrag}
+	 * 
+	 * @param urlaubsantrag
+	 */
 	public void saveUrlaubsantrag(Urlaubsantrag urlaubsantrag) {
-		Urlaubsantrag UrlaubsantragToSave;
-		//if (urlaubsantrag.getId() != null) {
-			
-		//}
+		entityManager.getTransaction().begin();
+		Urlaubsantrag urlaubsantragToSave;
+		if (urlaubsantrag.getId() != null) {
+			urlaubsantragToSave = entityManager.find(Urlaubsantrag.class,
+					urlaubsantrag.getId());
+		} else {
+			urlaubsantragToSave = new Urlaubsantrag();
+		}
+		urlaubsantragToSave.setAnzahltage(urlaubsantrag.getAnzahltage());
+		urlaubsantragToSave.setFachvorgesetzter(urlaubsantrag
+				.getFachvorgesetzter());
+		urlaubsantragToSave.setStatus(urlaubsantrag.getStatus());
+		urlaubsantragToSave.setMitarbeiter(urlaubsantrag.getMitarbeiter());
+		urlaubsantragToSave.setVertretung(urlaubsantrag.getVertretung());
 
+		entityManager.persist(urlaubsantragToSave);
+
+		Set<Zeitraum> zeitraums = urlaubsantrag.getZeitraums();
+
+		for (Zeitraum zeitraum : zeitraums) {
+			Zeitraum zeitraumToSave;
+			if (zeitraum.getId() != null) {
+				zeitraumToSave = entityManager.find(Zeitraum.class,
+						zeitraum.getId());
+			} else {
+				zeitraumToSave = new Zeitraum();
+			}
+			zeitraumToSave.setBeginn(zeitraum.getBeginn());
+			zeitraumToSave.setEnde(zeitraum.getEnde());
+			zeitraumToSave.setUrlaubsantrag(urlaubsantragToSave);
+			entityManager.persist(zeitraumToSave);
+		}
+		entityManager.getTransaction().commit();
 	}
 
+	/**
+	 * Methode zum Speichern eines Mitarbeiters.
+	 * 
+	 * @param mitarbeiter
+	 */
+	public void saveMitarbeiter(Mitarbeiter mitarbeiter) {
+		entityManager.getTransaction().begin();
+		Mitarbeiter mitarbeiterToSave;
+		if (mitarbeiter.getId() != null) {
+			mitarbeiterToSave = entityManager.find(Mitarbeiter.class,
+					mitarbeiter.getId());
+		} else {
+			mitarbeiterToSave = new Mitarbeiter();
+		}
+		mitarbeiterToSave.setNachname(mitarbeiter.getNachname());
+		mitarbeiterToSave.setVorname(mitarbeiter.getVorname());
+		entityManager.persist(mitarbeiter);
+		entityManager.getTransaction().commit();
+	}
+
+	/**
+	 * Methode zum L&ouml;schen eines {@link Urlaubsantrag};
+	 * 
+	 * @param urlaubsantrag
+	 */
 	public void deleteUrlaubsantrag(Urlaubsantrag urlaubsantrag) {
 		// TODO
 	}

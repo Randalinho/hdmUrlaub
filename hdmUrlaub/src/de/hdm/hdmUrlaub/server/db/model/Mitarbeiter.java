@@ -46,8 +46,9 @@ public class Mitarbeiter extends HibernateObject {
 	}
 
 	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 

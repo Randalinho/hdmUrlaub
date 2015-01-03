@@ -55,9 +55,22 @@ public class Urlaubsantrag extends HibernateObject {
 		this.zeitraums = zeitraums;
 	}
 
+	public Urlaubsantrag(Mitarbeiter mitarbeiter, Character status,
+			Integer anzahltage, String fachvorgesetzter, String vertretung,
+			Set<Zeitraum> zeitraums) {
+		super();
+		this.mitarbeiter = mitarbeiter;
+		this.status = status;
+		this.anzahltage = anzahltage;
+		this.fachvorgesetzter = fachvorgesetzter;
+		this.vertretung = vertretung;
+		this.zeitraums = zeitraums;
+	}
+
 	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 

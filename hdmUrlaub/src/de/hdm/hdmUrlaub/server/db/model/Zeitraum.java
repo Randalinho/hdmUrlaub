@@ -40,6 +40,13 @@ public class Zeitraum extends HibernateObject {
 		this.urlaubsantrag = urlaubsantrag;
 	}
 
+	public Zeitraum(Date beginn, Date ende) {
+		super();
+
+		this.beginn = beginn;
+		this.ende = ende;
+	}
+
 	public Zeitraum(int id, Urlaubsantrag urlaubsantrag, Date beginn, Date ende) {
 		this.id = id;
 		this.urlaubsantrag = urlaubsantrag;
@@ -48,8 +55,9 @@ public class Zeitraum extends HibernateObject {
 	}
 
 	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
