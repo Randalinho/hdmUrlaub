@@ -12,7 +12,9 @@ import de.hdm.hdmUrlaub.shared.bo.ZeitraumBo;
 import de.hdm.hdmUrlaub.shared.enums.Status;
 
 /**
- * Wandelt ein Hibernate Object vom {@link Urlaubsantrag} in ein Business Object vom Typ {@link UrlaubsantragBo} um.
+ * Wandelt ein Hibernate Object vom {@link Urlaubsantrag} in ein Business Object
+ * vom Typ {@link UrlaubsantragBo} um.
+ * 
  * @author Fabian
  *
  */
@@ -21,18 +23,21 @@ public class UrlaubsantragMapper implements
 
 	private MitarbeiterMapper mitarbeitermapper;
 	private ZeitraumMapper zeitraumMapper;
+	private FachvorgesetzterMapper fachvorgesetzterMapper;
 
 	public UrlaubsantragMapper() {
 		mitarbeitermapper = new MitarbeiterMapper();
 		zeitraumMapper = new ZeitraumMapper();
+		fachvorgesetzterMapper = new FachvorgesetzterMapper();
 	}
 
 	@Override
 	public UrlaubsantragBo getBo(Urlaubsantrag dbobject) {
+
 		UrlaubsantragBo urlaubsantragBo = new UrlaubsantragBo(dbobject.getId(),
-				dbobject.getVertretung(), dbobject.getFachvorgesetzter(),
-				dbobject.getAnzahltage(), mitarbeitermapper.getBo(dbobject
-						.getMitarbeiter()));
+				dbobject.getVertretung(), fachvorgesetzterMapper.getBo(dbobject
+						.getFachvorgesetzter()), dbobject.getAnzahltage(),
+				mitarbeitermapper.getBo(dbobject.getMitarbeiter()));
 
 		switch (dbobject.getStatus()) {
 		case 'g':
@@ -80,7 +85,8 @@ public class UrlaubsantragMapper implements
 		}
 
 		return new Urlaubsantrag(bo.getId(), mitarbeitermapper.getDbObject(bo
-				.getMitarbeiter()), status, bo.getAnzahltage(),
-				bo.getFachvorgesetzter(), bo.getVertretung(), zeitraums);
+				.getMitarbeiter()), fachvorgesetzterMapper.getDbObject(bo
+				.getFachvorgesetzter()), status, bo.getAnzahltage(),
+				bo.getVertretung(), zeitraums);
 	}
 }

@@ -7,7 +7,9 @@ import de.hdm.hdmUrlaub.server.db.model.Zeitraum;
 import de.hdm.hdmUrlaub.shared.bo.ZeitraumBo;
 
 /**
- * Wandelt ein Hibernate Object vom {@link Zeitraum} in ein Business Object vom Typ {@link ZeitraumBo} um.
+ * Wandelt ein Hibernate Object vom {@link Zeitraum} in ein Business Object vom
+ * Typ {@link ZeitraumBo} um.
+ * 
  * @author Fabian
  *
  */
@@ -37,8 +39,11 @@ public class ZeitraumMapper implements DbMapper<ZeitraumBo, Zeitraum> {
 
 	@Override
 	public Zeitraum getDbObject(ZeitraumBo bo) {
-		return new Zeitraum(bo.getId(), urlaubsantragMapper.getDbObject(bo
+
+		Zeitraum zeitraum = new Zeitraum(urlaubsantragMapper.getDbObject(bo
 				.getUrlaubsantrag()), bo.getBeginn(), bo.getEnde());
+		zeitraum.setId(bo.getId());
+		return zeitraum;
 	}
 
 }

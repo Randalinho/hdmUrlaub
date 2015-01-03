@@ -6,4 +6,5 @@
   <table-filter match-catalog="mydb" match-name="mitarbeiter"/>
   <table-filter match-catalog="mydb" match-name="urlaubsantrag"/>
   <table-filter match-catalog="mydb" match-name="zeitraum"/>
+  <table-filter match-catalog="mydb" match-name="fachvorgesetzter"/>
 </hibernate-reverse-engineering>

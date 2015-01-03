@@ -1,6 +1,5 @@
 package de.hdm.hdmUrlaub.server.db;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -8,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import de.hdm.hdmUrlaub.server.db.model.Fachvorgesetzter;
 import de.hdm.hdmUrlaub.server.db.model.Mitarbeiter;
 import de.hdm.hdmUrlaub.server.db.model.Urlaubsantrag;
 import de.hdm.hdmUrlaub.server.db.model.Zeitraum;
@@ -33,7 +33,7 @@ public class DataAcces {
 	/**
 	 * Methode zum Abrufen aller {@link Urlaubsantrag}.
 	 * 
-	 * @return
+	 * @return {@link List} <{@link Urlaubsantrag}>
 	 */
 	public List<Urlaubsantrag> getAllUrlaubsantrags() {
 
@@ -47,7 +47,7 @@ public class DataAcces {
 	/**
 	 * Methode zum Abrufen aller {@link Mitarbeiter}.
 	 * 
-	 * @return
+	 * @return {@link List}<{@link Mitarbeiter}>
 	 */
 	public List<Mitarbeiter> getAllMitarbeiter() {
 
@@ -56,6 +56,20 @@ public class DataAcces {
 				Mitarbeiter.class).getResultList();
 
 		return mitarbeiters;
+	}
+
+	/**
+	 * Methode zum Abrufen aller Fachvorgesetzten.
+	 * 
+	 * @return {@link List}<{@link Fachvorgesetzter}>
+	 */
+	public List<Fachvorgesetzter> getAllFachvorgesetzter() {
+		List<Fachvorgesetzter> fachvorgesetzters = entityManager
+				.createQuery(
+						"Select fachvorgesetzter FROM Fachvorgesetzter fachvorgesetzter",
+						Fachvorgesetzter.class).getResultList();
+
+		return fachvorgesetzters;
 	}
 
 	/**
@@ -78,6 +92,8 @@ public class DataAcces {
 		urlaubsantragToSave.setStatus(urlaubsantrag.getStatus());
 		urlaubsantragToSave.setMitarbeiter(urlaubsantrag.getMitarbeiter());
 		urlaubsantragToSave.setVertretung(urlaubsantrag.getVertretung());
+		urlaubsantragToSave.setFachvorgesetzter(urlaubsantrag
+				.getFachvorgesetzter());
 
 		entityManager.persist(urlaubsantragToSave);
 
@@ -125,7 +141,9 @@ public class DataAcces {
 	 * @param urlaubsantrag
 	 */
 	public void deleteUrlaubsantrag(Urlaubsantrag urlaubsantrag) {
-		// TODO
+		entityManager.getTransaction().begin();
+		entityManager.remove(urlaubsantrag);
+		entityManager.getTransaction().commit();
 	}
 
 	/**

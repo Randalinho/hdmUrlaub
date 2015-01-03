@@ -1,10 +1,11 @@
 package de.hdm.hdmUrlaub.server.db.model;
 
-// Generated 30.12.2014 17:40:22 by Hibernate Tools 4.3.1
+// Generated 03.01.2015 17:25:14 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,52 +24,38 @@ import javax.persistence.Table;
 @Table(name = "urlaubsantrag", catalog = "mydb")
 public class Urlaubsantrag extends HibernateObject {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4828292215814802589L;
+	private static final long serialVersionUID = -6371359530884209703L;
 	private Integer id;
 	private Mitarbeiter mitarbeiter;
+	private Fachvorgesetzter fachvorgesetzter;
 	private Character status;
 	private Integer anzahltage;
-	private String fachvorgesetzter;
 	private String vertretung;
 	private Set<Zeitraum> zeitraums = new HashSet<Zeitraum>(0);
 
 	public Urlaubsantrag() {
 	}
 
-	public Urlaubsantrag(int id, Mitarbeiter mitarbeiter) {
-		this.id = id;
+	public Urlaubsantrag(Mitarbeiter mitarbeiter,
+			Fachvorgesetzter fachvorgesetzter) {
 		this.mitarbeiter = mitarbeiter;
+		this.fachvorgesetzter = fachvorgesetzter;
 	}
 
-	public Urlaubsantrag(Integer id, Mitarbeiter mitarbeiter, Character status,
-			Integer anzahltage, String fachvorgesetzter, String vertretung,
-			Set<Zeitraum> zeitraums) {
+	public Urlaubsantrag(Integer id, Mitarbeiter mitarbeiter,
+			Fachvorgesetzter fachvorgesetzter, Character status,
+			Integer anzahltage, String vertretung, Set<Zeitraum> zeitraums) {
 		this.id = id;
 		this.mitarbeiter = mitarbeiter;
+		this.fachvorgesetzter = fachvorgesetzter;
 		this.status = status;
 		this.anzahltage = anzahltage;
-		this.fachvorgesetzter = fachvorgesetzter;
-		this.vertretung = vertretung;
-		this.zeitraums = zeitraums;
-	}
-
-	public Urlaubsantrag(Mitarbeiter mitarbeiter, Character status,
-			Integer anzahltage, String fachvorgesetzter, String vertretung,
-			Set<Zeitraum> zeitraums) {
-		super();
-		this.mitarbeiter = mitarbeiter;
-		this.status = status;
-		this.anzahltage = anzahltage;
-		this.fachvorgesetzter = fachvorgesetzter;
 		this.vertretung = vertretung;
 		this.zeitraums = zeitraums;
 	}
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
 		return this.id;
@@ -86,6 +73,16 @@ public class Urlaubsantrag extends HibernateObject {
 
 	public void setMitarbeiter(Mitarbeiter mitarbeiter) {
 		this.mitarbeiter = mitarbeiter;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fachvorgesetzter_id", nullable = false)
+	public Fachvorgesetzter getFachvorgesetzter() {
+		return this.fachvorgesetzter;
+	}
+
+	public void setFachvorgesetzter(Fachvorgesetzter fachvorgesetzter) {
+		this.fachvorgesetzter = fachvorgesetzter;
 	}
 
 	@Column(name = "status", length = 1)
@@ -106,15 +103,6 @@ public class Urlaubsantrag extends HibernateObject {
 		this.anzahltage = anzahltage;
 	}
 
-	@Column(name = "fachvorgesetzter", length = 45)
-	public String getFachvorgesetzter() {
-		return this.fachvorgesetzter;
-	}
-
-	public void setFachvorgesetzter(String fachvorgesetzter) {
-		this.fachvorgesetzter = fachvorgesetzter;
-	}
-
 	@Column(name = "vertretung", length = 45)
 	public String getVertretung() {
 		return this.vertretung;
@@ -124,7 +112,7 @@ public class Urlaubsantrag extends HibernateObject {
 		this.vertretung = vertretung;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "urlaubsantrag")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "urlaubsantrag", cascade = CascadeType.ALL)
 	public Set<Zeitraum> getZeitraums() {
 		return this.zeitraums;
 	}

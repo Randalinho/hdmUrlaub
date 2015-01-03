@@ -17,6 +17,10 @@ public class MitarbeiterBo extends HdmUrlaubBusinessObject {
 
 	private String nachname;
 
+	private String passwort;
+
+	private String email;
+
 	private List<UrlaubsantragBo> urlaubsantraege;
 
 	public MitarbeiterBo() {
@@ -53,6 +57,22 @@ public class MitarbeiterBo extends HdmUrlaubBusinessObject {
 
 	public void setUrlaubsantraege(List<UrlaubsantragBo> urlaubsantraege) {
 		this.urlaubsantraege = urlaubsantraege;
+	}
+
+	public String getPasswort() {
+		return passwort;
+	}
+
+	public void setPasswort(String passwort) {
+		this.passwort = passwort;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

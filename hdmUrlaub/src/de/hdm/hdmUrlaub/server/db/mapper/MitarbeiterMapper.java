@@ -37,6 +37,8 @@ public class MitarbeiterMapper implements DbMapper<MitarbeiterBo, Mitarbeiter> {
 			antraege.add(urlaubsantragBo);
 		}
 		mitarbeiterBo.setUrlaubsantraege(antraege);
+		mitarbeiterBo.setPasswort(dbobject.getPasswort());
+		mitarbeiterBo.setEmail(dbobject.getEmail());
 		return mitarbeiterBo;
 	}
 
@@ -58,8 +60,9 @@ public class MitarbeiterMapper implements DbMapper<MitarbeiterBo, Mitarbeiter> {
 		for (UrlaubsantragBo urlaubsantragBo : bo.getUrlaubsantraege()) {
 			antraege.add(urlaubsantragmapper.getDbObject(urlaubsantragBo));
 		}
-
-		return new Mitarbeiter(bo.getId(), bo.getVorname(), bo.getNachname(),
-				antraege);
+		Mitarbeiter mitarbeiter = new Mitarbeiter(bo.getVorname(),
+				bo.getNachname(), bo.getEmail(), bo.getPasswort(), antraege);
+		mitarbeiter.setId(bo.getId());
+		return mitarbeiter;
 	}
 }

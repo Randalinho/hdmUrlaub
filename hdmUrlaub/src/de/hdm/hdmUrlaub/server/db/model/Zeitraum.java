@@ -1,6 +1,6 @@
 package de.hdm.hdmUrlaub.server.db.model;
 
-// Generated 30.12.2014 17:40:22 by Hibernate Tools 4.3.1
+// Generated 03.01.2015 17:25:14 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -23,10 +23,7 @@ import javax.persistence.TemporalType;
 @Table(name = "zeitraum", catalog = "mydb")
 public class Zeitraum extends HibernateObject {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2137162109841747310L;
+	private static final long serialVersionUID = -5997665572839340806L;
 	private Integer id;
 	private Urlaubsantrag urlaubsantrag;
 	private Date beginn;
@@ -35,27 +32,24 @@ public class Zeitraum extends HibernateObject {
 	public Zeitraum() {
 	}
 
-	public Zeitraum(int id, Urlaubsantrag urlaubsantrag) {
-		this.id = id;
+	public Zeitraum(Urlaubsantrag urlaubsantrag) {
 		this.urlaubsantrag = urlaubsantrag;
 	}
 
 	public Zeitraum(Date beginn, Date ende) {
 		super();
-
 		this.beginn = beginn;
 		this.ende = ende;
 	}
 
-	public Zeitraum(int id, Urlaubsantrag urlaubsantrag, Date beginn, Date ende) {
-		this.id = id;
+	public Zeitraum(Urlaubsantrag urlaubsantrag, Date beginn, Date ende) {
 		this.urlaubsantrag = urlaubsantrag;
 		this.beginn = beginn;
 		this.ende = ende;
 	}
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
 		return this.id;
